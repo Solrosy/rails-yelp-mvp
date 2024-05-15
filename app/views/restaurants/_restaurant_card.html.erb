@@ -1,26 +1,24 @@
 
 
-  <div class="col">
-    <div class="card shadow">
-      <% random_search_word = ["food", "restaurant", "chef", "cuisine", "asian", "chinese", "burger"].sample %>
-      <img src="https://source.unsplash.com/random/150x150/?<%= random_search_word %>" alt="<%= random_search_word.capitalize %>">
-      <div class="card-body">
-         <%= link_to restaurant_path(restaurant), :class => "stretched-link" do %>
-        <a class="card-title h5 text-decoration-none"><%= restaurant.name %></a>
-        <% end %>
-        <div class="d-flex justify-content-between">
-          <span class="badge bg-secondary"><%= restaurant.category %></span>
-          <div>
-            <% (1..5).each do |i| %>
-              <% if i <= restaurant.average_rating.to_i %>
-                <i class="fa-solid fa-star" style="color:gold"></i>
-              <% else %>
-                <i class="fa-regular fa-star" style="color:gold"></i>
-              <% end %>
+  <div class="col col-sm border shadow m-2 p-2 text-primary" style="min-width: 250px;">
+  <%= link_to restaurant_path(restaurant), class: "text-decoration-none" do %>
+    <% random_search_word = ["food", "restaurant", "chef", "cuisine", "asian", "chinese", "burger"].sample %>
+    <img src="https://source.unsplash.com/random/150x150/?<%= random_search_word %>" alt="<%= random_search_word.capitalize %>" class="w-100">
+    <div>
+      <h5 class="text-dark"><%= restaurant.name %></h5>
+      <div class="d-flex justify-content-between">
+        <span class="badge rounded-pill bg-secondary"><%= restaurant.category %></span>
+        <div>
+          <% (1..5).each do |i| %>
+            <% if i <= restaurant.average_rating.to_i %>
+              <i class="fa-solid fa-star" style="color:gold"></i>
+            <% else %>
+              <i class="fa-regular fa-star" style="color:gold"></i>
             <% end %>
-          </div>
+          <% end %>
         </div>
-        <p class="card-text"><%= restaurant.address %></p>
       </div>
+      <div class="text-dark"><%= restaurant.address %></div>
     </div>
+    <% end %>
   </div>

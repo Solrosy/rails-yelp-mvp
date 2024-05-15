@@ -1,9 +1,12 @@
-<%= form_with model: @restaurant do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.submit %>
-<% end %>
+<div class="card rounded p-3 m-3 bg-white">
+  <h1>Add a new restaurant</h1>
+
+    <%= simple_form_for @restaurant do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+       <%= f.input :phone_number %>
+      <%= f.input :category, collection: Restaurant::CATEGORIES %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+
+</div>

@@ -1,0 +1,33 @@
+<h1><%= @restaurant.name %></h1>
+<div class="row row-cols-1">
+<div class="col">
+    <div class="card shadow h-auto">
+      <% random_search_word = ["food", "restaurant", "chef", "cuisine", "asian", "chinese", "burger"].sample %>
+      <img src="https://source.unsplash.com/random/150x150/?<%= random_search_word %>" height="250px" alt="<%= random_search_word.capitalize %>">
+      <div class="card-body">
+        <a class="card-title h5 text-decoration-none"><%= @restaurant.name %></a>
+        <div class="d-flex justify-content-between">
+          <span class="badge bg-secondary"><%= @restaurant.category %></span>
+          <div>
+            <% (1..5).each do |i| %>
+              <% if i <= @restaurant.average_rating.to_i %>
+                <i class="fa-solid fa-star" style="color:gold"></i>
+              <% else %>
+                <i class="fa-regular fa-star" style="color:gold"></i>
+              <% end %>
+            <% end %>
+            (<%= @restaurant.reviews.count %>)
+          </div>
+        </div>
+        <p class="card-text"><%= @restaurant.address %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="mt-5">Reviews</h1>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 ">
+  <% @restaurant.reviews.each do |review| %>
+    <div><%= render "/reviews/review_card", review: review %></div>
+  <% end %>
+</div>

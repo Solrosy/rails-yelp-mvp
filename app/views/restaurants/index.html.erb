@@ -1,0 +1,8 @@
+<h1>Restaurants</h1>
+<button>Add</button>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+  <% @restaurants.each do |restaurant| %>
+    <%= render "restaurant_card", restaurant: restaurant %>
+  <% end %>
+</div>

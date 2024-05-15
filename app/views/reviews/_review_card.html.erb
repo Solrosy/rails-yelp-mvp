@@ -1,0 +1,18 @@
+  <div class="col">
+    <div class="card shadow h-auto rounded-lg">
+      <div class="card-body">
+        <div class="d-flex">
+          <div>
+            <% (1..5).each do |i| %>
+              <% if i <= review.rating.to_i %>
+                <i class="fa-solid fa-star" style="color:gold"></i>
+              <% else %>
+                <i class="fa-regular fa-star" style="color:gold"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <p class="card-text"><%= review.content %></p>
+      </div>
+    </div>
+  </div>

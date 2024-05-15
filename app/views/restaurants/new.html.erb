@@ -1,4 +1,10 @@
-<div class="card rounded p-3 m-3 bg-white">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb mt-5">
+    <li class="breadcrumb-item"><%= link_to "Home", restaurants_path %></li>
+  </ol>
+</nav>
+
+<div class="card rounded p-3 mt-3 bg-white">
   <h1>Add a new restaurant</h1>
 
     <%= simple_form_for @restaurant do |f| %>
